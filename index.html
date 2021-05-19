@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.common.dev.min.js" integrity="sha512-PkyFg1MEb/EwsFAqzqvZqWdMT4ItV+E1NgOtfBC9X8UecJcO9bwirD+v/9tJwci4wTNHdNYBk4ev6ceb1hy73g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="index.js"></script>
+    <style>
+      body {
+        background: #20262E;
+        padding: 20px;
+        font-family: Helvetica;
+      }
+
+      #app {
+        background: #fff;
+        border-radius: 4px;
+        padding: 20px;
+        transition: all 0.2s;
+      }
+
+      .entryfield {
+        width: 90%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h2>World Info Editor:</h2>
+      <input type="button" value="Add WI" v-on:click="entries.push({keys:'keys',entry:'entry'})">
+      <input type="button" value="Download WI" v-on:click="get_json">
+      <ol>
+        <li v-for="wi in entries">
+          <label>
+            <input class="keyfield" type="text" v-bind:value="wi.keys">
+            <textarea class="entryfield" v-bind:value="wi.entry" rows=3>
+            </textarea>
+          </label>
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
